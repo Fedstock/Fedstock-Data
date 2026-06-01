@@ -4,11 +4,10 @@ import pandas as pd
 # 03 feature engineer
 """
 모델 학습에 필요한 피처 생성 코드
-1.SNAP flag(생성)
-2. 이벤트/요일 생성
-3. 가격 정보 조인
-4. lag/rolling 피처 생성
-5. 결측치 제거
+1. 이벤트/요일 생성
+2. 가격 정보 조인
+3. lag/rolling 피처 생성
+4. 결측치 제거
 """
 
 # sell_price는 optional
@@ -20,20 +19,6 @@ FEATURE_COLS = [
     "price_change_rate", "sell_price",
     "week_of_year", "is_month_start", "is_month_end"
 ]
-
-
-# def add_snap_flag(df: pd.DataFrame) -> pd.DataFrame:
-#     def get_snap_flag(row):
-#         if row["state_id"] == "CA":
-#             return row["snap_CA"]
-#         elif row["state_id"] == "TX":
-#             return row["snap_TX"]
-#         elif row["state_id"] == "WI":
-#             return row["snap_WI"]
-#         return 0
-
-#     df["snap_flag"] = df.apply(get_snap_flag, axis=1)
-#     return df
 
 
 def add_calendar_features(df: pd.DataFrame) -> pd.DataFrame:
